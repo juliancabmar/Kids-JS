@@ -10,7 +10,7 @@ global.getString = async function () {
       resolve();
     });
   });
-  return str.split("\n")[0];
+  return str;
 };
 
 global.getKey = async function () {
@@ -30,4 +30,15 @@ global.getKey = async function () {
 
 global.print = function (value) {
   process.stdout.write(value);
+};
+
+global.sleep = (s) => {
+  return new Promise((resolve) => setTimeout(resolve, s * 1000));
+};
+
+global.clear = console.clear;
+
+global.clearLine = function () {
+  process.stdout.clearLine();
+  process.stdout.cursorTo(0);
 };
